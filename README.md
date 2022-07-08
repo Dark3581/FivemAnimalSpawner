@@ -1,4 +1,4 @@
-# five m animal spawner
+# Five M Animal Spawner
 This is just a simple command to spawn in an animal used for an animal riding script, just a simple animal spawner that spawns in the AI animal.
 
 ANIMAL RIDING SCRIPT: https://github.com/VenomXNL/XNLRideAnimals

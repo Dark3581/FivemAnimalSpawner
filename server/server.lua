@@ -1,23 +1,21 @@
-RegisterCommand("deer", function(source, args, raw)
+RegisterCommand("spawnAnimal", function(source, args, raw)
     local src = source
-    if IsPlayerAceAllowed(src, "DonnySpawner") then
-    TriggerClientEvent("DonnySpawner:Deer", src) else
-        print("Not Allowed")
-    end
-end)
+    local inputanimal = args[1]
 
-RegisterCommand("pig", function(source, args, raw)
-    local src = source
-    if IsPlayerAceAllowed(src, "DonnySpawner") then
-    TriggerClientEvent("DonnySpawner:pig", src) else
-        print("Not Allowed")
-    end
-end)
 
-RegisterCommand("cow", function(source, args, raw)
-    local src = source
-    if IsPlayerAceAllowed(src, "DonnySpawner") then
-    TriggerClientEvent("DonnySpawner:cow", src) else
-        print("Not Allowed")
+    -- CHAT CHAT NOTIFY make configable
+    if inputanimal == nil then
+        Notify(src, "You must input a animal.")
+        return
     end
-end)
+
+    TriggerClientEvent("DonnySpawner:SpawnAnimal", src, inputanimal)
+end, true)
+
+function Notify(user, msg)
+    msg = tostring(msg)
+    TriggerClientEvent("chat:addMessage", user, {
+        args = {"Animal Spawner", msg}
+    })
+
+end

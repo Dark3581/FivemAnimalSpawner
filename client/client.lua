@@ -1,6 +1,6 @@
-RegisterNetEvent("DonnySpawner:Deer")
-AddEventHandler("DonnySpawner:Deer", function()
-    local Model = GetHashKey("a_c_deer")
+RegisterNetEvent("DonnySpawner:SpawnAnimal")
+AddEventHandler("DonnySpawner:SpawnAnimal", function(animalU)
+    local Model = GetHashKey(animalU)
 	RequestModel(Model)
 	while not HasModelLoaded(Model) do
 		Citizen.Wait(50)
@@ -9,29 +9,14 @@ AddEventHandler("DonnySpawner:Deer", function()
 	local Ped = PlayerPedId()
 	local PedPosition = GetEntityCoords(Ped, false)
 
-	Deer.Handle = CreatePed(28, Model, PedPosition.x, PedPosition.y, PedPosition.z, GetEntityHeading(Ped), true, false)
+	Animal.Handle = CreatePed(28, Model, PedPosition.x, PedPosition.y, PedPosition.z, GetEntityHeading(Ped), true, false)
 
-	SetPedCanRagdoll(Deer.Handle, Deer.Ragdoll)
-	SetEntityInvincible(Deer.Handle, Deer.Invincible)
-
-	SetModelAsNoLongerNeeded(Model)
-end)
-
-RegisterNetEvent("DonnySpawner:cow")
-AddEventHandler("DonnySpawner:cow", function()
-    local Model = GetHashKey("a_c_cow")
-	RequestModel(Model)
-	while not HasModelLoaded(Model) do
-		Citizen.Wait(50)
-	end
-
-	local Ped = PlayerPedId()
-	local PedPosition = GetEntityCoords(Ped, false)
-
-	cow.Handle = CreatePed(28, Model, PedPosition.x, PedPosition.y, PedPosition.z, GetEntityHeading(Ped), true, false)
-
-	SetPedCanRagdoll(cow.Handle, cow.Ragdoll)
-	SetEntityInvincible(cow.Handle, cow.Invincible)
+	SetPedCanRagdoll(Animal.Handle, Animal.Ragdoll)
+	SetEntityInvincible(Animal.Handle, Animal.Invincible)
 
 	SetModelAsNoLongerNeeded(Model)
 end)
+
+TriggerEvent('chat:addSuggestion', '/spawnAnimal', 'Spawns in a animal [LOCKED]', {
+	{name="animal", help="Spawn code of animal"},
+  })

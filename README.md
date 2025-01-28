@@ -1,4 +1,4 @@
-# FiveM Animal Spawner
+# Five M Animal Spawner
 ![f0e084-20190517172232_1-333458770](https://user-images.githubusercontent.com/67527731/178375396-cedc4556-348c-4c0c-8c99-3b5952c0a874.png)
 This is just a simple command to spawn in an animal used for an animal riding script, just a simple animal spawner that spawns in the AI animal.
 

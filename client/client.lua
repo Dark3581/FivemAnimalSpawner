@@ -1,3 +1,4 @@
+-- EVENT
 RegisterNetEvent("DonnySpawner:SpawnAnimal")
 AddEventHandler("DonnySpawner:SpawnAnimal", function(animalU)
     local Model = GetHashKey(animalU)
